@@ -146,7 +146,7 @@ function App() {
                 <div className="portfolio-info">
                   <span>ALOJAMIENTO</span>
                   <h3>Posada El Tordillo</h3>
-                  <a href="#contacto">Ver experiencia →</a>
+                  <a href="https://kl47498.viewin360.co/share/collection/7Tj36?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
 
@@ -155,7 +155,7 @@ function App() {
                 <div className="portfolio-info">
                   <span>GASTRONOMÍA</span>
                   <h3>El Bodegón de la Laguna</h3>
-                  <a href="#contacto">Ver experiencia →</a>
+                  <a href="https://kl47498.viewin360.co/share/collection/7Tysw?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
 
@@ -164,7 +164,7 @@ function App() {
                 <div className="portfolio-info">
                   <span>CULTURA</span>
                   <h3>Centro Cultural Vieja Estación</h3>
-                  <a href="#contacto">Ver experiencia →</a>
+                  <a href="https://kl47498.viewin360.co/share/collection/7Ts3x?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
 
@@ -173,7 +173,7 @@ function App() {
                 <div className="portfolio-info">
                   <span>PROPIEDAD</span>
                   <h3>Casa de Casco</h3>
-                  <a href="#contacto">Ver experiencia →</a>
+                  <a href="https://kl47498.viewin360.co/share/collection/7Twhb?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
             </div>
