@@ -226,9 +226,9 @@ function App() {
               </p>
             </div>
 
-            <a href="https://wa.me/" className="button button-primary">
+            <a href="https://wa.me/5492241570216" className="button button-primary">
               Contactar por WhatsApp
-            </a>
+           </a>
           </div>
         </section>
       </main>
