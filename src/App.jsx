@@ -1,5 +1,9 @@
 import './App.css'
-
+import posadaElTordillo from './assets/portfolio/posada-el-tordillo.png'
+import elBodegonDeLaLaguna from './assets/portfolio/el-bodegon-de-la-laguna.png'
+import centroCulturalViejaEstacion from './assets/portfolio/centro-cultural-vieja-estacion.jpg'
+import casaDeCasco from './assets/portfolio/casa-de-casco.png'
+import mazzini2591roA from './assets/portfolio/mazzini-259-1ro-a.png'
 function App() {
   return (
     <>
@@ -142,40 +146,49 @@ function App() {
 
             <div className="portfolio-grid">
               <article className="portfolio-card">
-                <div className="portfolio-placeholder">360°</div>
+                <img src={posadaElTordillo} alt="Posada El Tordillo en Chascomús" className="portfolio-image" />
                 <div className="portfolio-info">
-                  <span>ALOJAMIENTO</span>
+                  <span>ALOJAMIENTOS TURISTICOS</span>
                   <h3>Posada El Tordillo</h3>
-                  <a href="https://kl47498.viewin360.co/share/collection/7Tj36?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
+                  <a href="https://kuula.co/share/collection/7Tj36?logo=1&info=1&fs=1&vr=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
 
               <article className="portfolio-card">
-                <div className="portfolio-placeholder">360°</div>
+                <img src={elBodegonDeLaLaguna} alt="El Bodegón de la Laguna en Chascomús" className="portfolio-image" />
                 <div className="portfolio-info">
                   <span>GASTRONOMÍA</span>
                   <h3>El Bodegón de la Laguna</h3>
-                  <a href="https://kl47498.viewin360.co/share/collection/7Tysw?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
+                  <a href="https://kuula.co/share/collection/7Tysw?logo=1&info=1&fs=1&vr=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
 
               <article className="portfolio-card">
-                <div className="portfolio-placeholder">360°</div>
+                <img src={centroCulturalViejaEstacion} alt="Centro Cultural Vieja Estación de Chascomús" className="portfolio-image" />
                 <div className="portfolio-info">
                   <span>CULTURA</span>
                   <h3>Centro Cultural Vieja Estación</h3>
-                  <a href="https://kl47498.viewin360.co/share/collection/7Ts3x?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
+                  <a href="https://kuula.co/share/collection/7Ts3x?logo=1&info=1&fs=1&vr=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
 
               <article className="portfolio-card">
-                <div className="portfolio-placeholder">360°</div>
+                <img src={casaDeCasco} alt="Casa de Casco de Chascomús" className="portfolio-image" />
                 <div className="portfolio-info">
                   <span>PROPIEDAD</span>
                   <h3>Casa de Casco</h3>
-                  <a href="https://kl47498.viewin360.co/share/collection/7Twhb?logo=1&card=1&info=0&logosize=200&fs=1&vr=1&zoom=1&initload=0&thumbs=1&inst=es">Ver experiencia →</a>
+                  <a href="https://kuula.co/share/collection/7Twhb?logo=1&info=1&fs=1&vr=0&thumbs=1&inst=es">Ver experiencia →</a>
                 </div>
               </article>
+
+             <article className="portfolio-card">
+              <img src={mazzini2591roA} alt="Departamentos en Alquiler en Chascomús" className="portfolio-image" />
+              <div className="portfolio-info">
+               <span>REAL STATE</span>
+               <h3>Departamentos en Alquiler</h3>
+               <a href="https://kuula.co/share/collection/7TgJT?logo=1&info=1&fs=1&vr=0&thumbs=1&inst=es">Ver experiencia →</a>
+            </div>
+          </article>
             </div>
           </div>
         </section>
