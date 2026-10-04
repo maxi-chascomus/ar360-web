@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import posadaElTordillo from "./assets/portfolio/posada-el-tordillo.png";
@@ -8,7 +9,7 @@ import mazzini2591roA from "./assets/portfolio/mazzini-259-1ro-a.png";
 
 const experiencias = [
   {
-    category: "TURISMO",
+    category: "HOTELES Y CABAÑAS",
     title: "Posada El Tordillo",
     description:
       "Una experiencia visual para descubrir un espacio turístico de Chascomús.",
@@ -24,7 +25,7 @@ const experiencias = [
     link: "https://kuula.co/share/collection/7Tysw?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1&inst=es",
   },
   {
-    category: "CULTURA",
+    category: "PATRIMONIO HISTORICO",
     title: "Centro Cultural Vieja Estación",
     description:
       "Digitalización de un espacio cultural para facilitar su descubrimiento.",
@@ -32,7 +33,7 @@ const experiencias = [
     link: "https://kuula.co/share/collection/7Ts3x?logo=1&info=1&fs=1&vr=0&thumbs=1&inst=es",
   },
   {
-    category: "PATRIMONIO",
+    category: "PATRIMONIO HISTORICO",
     title: "Casa de Casco",
     description:
       "Una forma diferente de recorrer y conocer un espacio histórico.",
@@ -41,7 +42,7 @@ const experiencias = [
   },
   {
     category: "REAL STATE",
-    title: "Departamentos en Alquiler",
+    title: "Propiedades en Venta o Alquiler",
     description:
       "Presentación visual de una propiedad para facilitar su promoción.",
     image: mazzini2591roA,
@@ -142,6 +143,16 @@ const proceso = [
 ];
 
 function App() {
+  const [consultaEnviada, setConsultaEnviada] = useState(false);
+  useEffect(() => {
+  if (!consultaEnviada) return;
+
+  const temporizador = setTimeout(() => {
+    setConsultaEnviada(false);
+  }, 5000);
+
+  return () => clearTimeout(temporizador);
+}, [consultaEnviada]);
   return (
     <div className="site">
       <header className="header">
@@ -369,29 +380,186 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-section" id="contacto">
-          <div className="container">
-            <div className="contact-inner">
-              <div className="contact-copy">
-                <h2>¿Querés convertir tu espacio en una experiencia?</h2>
+<section className="contact-section" id="contacto">
+  <div className="container">
+    <div className="contact-inner">
+      <div className="contact-copy">
+        <h2>¿Querés convertir tu espacio en una experiencia?</h2>
 
-                <p>
-                  Contanos qué necesitás y analizamos juntos la mejor forma de
-                  mostrar, comunicar y promocionar tu proyecto.
-                </p>
-              </div>
+        <p>
+          Contanos qué necesitás y analizamos juntos la mejor forma de
+          mostrar, comunicar y promocionar tu proyecto.
+        </p>
 
-              <a
-                className="button button-primary"
-                href="https://wa.me/5492241570216"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Contactar por WhatsApp
-              </a>
-            </div>
+        <a
+          className="button button-primary"
+          href="https://wa.me/5492241570216"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Contactar por WhatsApp
+        </a>
+        {consultaEnviada && (
+  <p className="contact-success">
+    Consulta preparada correctamente. Se abrió WhatsApp para que puedas
+    revisar y enviar el mensaje.
+  </p>
+)}
+      </div>
+
+      <form
+  className="contact-form"
+  onInput={() => {
+    setConsultaEnviada(false);
+  }}
+  onSubmit={(event) => {
+
+  event.preventDefault();
+
+  const form = event.currentTarget;
+
+  const formData = new FormData(form);
+
+  const nombre = formData.get("nombre")?.toString().trim();
+
+  const empresa = formData.get("empresa")?.toString().trim();
+
+  const localidad = formData.get("localidad")?.toString().trim();
+
+  const whatsapp = formData.get("whatsapp")?.toString().trim();
+
+  const email = formData.get("email")?.toString().trim();
+
+  const servicio = formData.get("servicio")?.toString().trim();
+
+  const mensaje = formData.get("mensaje")?.toString().trim();
+
+const textoWhatsApp = [
+  "Hola AR360°, quiero realizar una consulta.",
+  "",
+  `Nombre: ${nombre}`,
+  empresa ? `Empresa / emprendimiento: ${empresa}` : "",
+  localidad ? `Localidad: ${localidad}` : "",
+  `WhatsApp: ${whatsapp}`,
+  email ? `Email: ${email}` : "",
+  `Servicio: ${servicio}`,
+  mensaje ? "" : "",
+  mensaje ? `Mensaje:\n${mensaje}` : "",
+]
+  .filter((linea) => linea !== "")
+  .join("\n");
+const urlWhatsApp = `https://wa.me/5492241570216?text=${encodeURIComponent(
+  textoWhatsApp
+)}`;
+
+form.reset();
+
+setConsultaEnviada(true);
+
+window.open(urlWhatsApp, "_blank");
+}}
+>
+        <div className="form-field">
+          <label htmlFor="nombre">Nombre</label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            placeholder="Tu nombre"
+            required
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="empresa">Empresa / emprendimiento</label>
+          <input
+            id="empresa"
+            name="empresa"
+            type="text"
+            placeholder="Nombre de tu empresa o emprendimiento"
+          />
+        </div>
+
+        <div className="form-row">
+          <div className="form-field">
+            <label htmlFor="localidad">Localidad</label>
+            <input
+              id="localidad"
+              name="localidad"
+              type="text"
+              placeholder="Chascomús"
+            />
           </div>
-        </section>
+
+          <div className="form-field">
+            <label htmlFor="whatsapp">WhatsApp</label>
+            <input
+              id="whatsapp"
+              name="whatsapp"
+              type="tel"
+              placeholder="11 1234 5678"
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="tu@email.com"
+          />
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="servicio">Servicio que te interesa</label>
+
+          <select
+            id="servicio"
+            name="servicio"
+            defaultValue=""
+            required
+          >
+            <option value="" disabled>
+              Seleccioná una opción
+            </option>
+            <option value="Recorrido virtual 360°">
+              Recorrido virtual 360°
+            </option>
+            <option value="Fotografía profesional HDR">
+              Fotografía profesional HDR
+            </option>
+            <option value="Producción audiovisual">
+              Producción audiovisual
+            </option>
+            <option value="Contenido para redes">
+              Contenido para redes
+            </option>
+            <option value="Solución personalizada">
+              Solución personalizada
+            </option>
+          </select>
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="5"
+            placeholder="Contanos brevemente qué necesitás..."
+          ></textarea>
+        </div>
+
+        <button className="button button-primary" type="submit">
+          Enviar consulta
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
       </main>
 
       <footer className="footer">
