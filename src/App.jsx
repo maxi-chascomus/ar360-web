@@ -78,14 +78,14 @@ const servicios = [
 ];
 
 const sectores = [
-  "Turismo",
-  "Inmobiliarias",
-  "Gastronomía",
-  "Hoteles y cabañas",
-  "Eventos",
-  "Comercios",
-  "Arquitectura",
-  "Instituciones",
+  "Inmobiliarias y propiedades",
+  "Turismo, hoteles y cabañas",
+  "Gastronomía y eventos",
+  "Comercios y empresas",
+  "Arquitectura y construcción",
+  "Instituciones y organismos públicos",
+  "Automotores",
+  "Alquileres temporarios",
 ];
 
 const razones = [
