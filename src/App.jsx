@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import posadaElTordillo from "./assets/portfolio/posada-el-tordillo.png";
-import elBodegonDeLaLaguna from "./assets/portfolio/el-bodegon-de-la-laguna.png";
-import centroCulturalViejaEstacion from "./assets/portfolio/centro-cultural-vieja-estacion.jpg";
-import casaDeCasco from "./assets/portfolio/casa-de-casco.png";
-import mazzini2591roA from "./assets/portfolio/mazzini-259-1ro-a.png";
+import posadaElTordillo from "./assets/portfolio/optimized/posada-el-tordillo.webp";
+import elBodegonDeLaLaguna from "./assets/portfolio/optimized/el-bodegon-de-la-laguna.webp";
+import centroCulturalViejaEstacion from "./assets/portfolio/optimized/centro-cultural-vieja-estacion.webp";
+import casaDeCasco from "./assets/portfolio/optimized/casa-de-casco.webp";
+import mazzini2591roA from "./assets/portfolio/optimized/mazzini-259-1ro-a.webp";
 
 const experiencias = [
   {
