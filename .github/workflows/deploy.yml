@@ -32,7 +32,7 @@ jobs:
         run: npm run lint
 
       - name: Run tests (CI mode)
-        run: npm run test -- --pool=vmThreads --single-thread --test-timeout=30000
+        run: npm run test -- --pool=vmThreads --test-timeout=30000
 
       - name: Build
         run: npm run build
