@@ -8,12 +8,14 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.js'],
     globals: true,
     include: ['src/**/*.{test,spec}.{js,jsx}'],
-    pool: 'threads',
+    pool: 'forks',
     poolOptions: {
-      threads: {
-        singleThread: true,
+      forks: {
+        singleFork: true,
       },
     },
+    testTimeout: 15000,
+    hookTimeout: 15000,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
