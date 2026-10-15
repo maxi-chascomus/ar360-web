@@ -39,6 +39,7 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -52,8 +53,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm run test
+      - name: Run tests (CI mode)
+        run: npm run test -- --pool=vmThreads --single-thread --test-timeout=30000
 
       - name: Upload coverage
         uses: codecov/codecov-action@v4
