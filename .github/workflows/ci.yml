@@ -53,8 +53,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm run test
+      - name: Run tests (threads pool for Node 24 compat)
+        run: npm run test -- --pool=threads
 
   build:
     name: Build

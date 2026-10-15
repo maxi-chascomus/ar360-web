@@ -31,8 +31,8 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Run tests
-        run: npm run test
+      - name: Run tests (threads pool for Node 24 compat)
+        run: npm run test -- --pool=threads
 
       - name: Build
         run: npm run build
