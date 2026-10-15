@@ -9,15 +9,15 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.js'],
     globals: true,
     include: ['src/**/*.{test,spec}.{js,jsx}'],
-    // forks pool es compatible con Node 24 (vmThreads tiene bug con undici)
-    pool: 'forks',
+    // threads pool (legacy) es compatible con Node 24
+    pool: 'threads',
     poolOptions: {
-      forks: { singleFork: true },
+      threads: { singleThread: true },
     },
     // Timeouts generosos para CI
     testTimeout: isCI ? 30000 : 15000,
     hookTimeout: isCI ? 30000 : 15000,
-    // Desactivar file parallelism en CI para evitar OOM
+    // Desactivar file parallelism en CI
     fileParallelism: isCI ? false : true,
     coverage: {
       provider: 'v8',
