@@ -31,8 +31,8 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Run tests (CI mode)
-        run: npm run test -- --pool=vmThreads --test-timeout=30000
+      - name: Run tests
+        run: npm run test
 
       - name: Build
         run: npm run build

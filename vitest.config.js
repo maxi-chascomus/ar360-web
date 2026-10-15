@@ -9,11 +9,10 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.js'],
     globals: true,
     include: ['src/**/*.{test,spec}.{js,jsx}'],
-    // CI: usar vmThreads (más estable), Local: forks
-    pool: isCI ? 'vmThreads' : 'forks',
+    // forks pool es compatible con Node 24 (vmThreads tiene bug con undici)
+    pool: 'forks',
     poolOptions: {
       forks: { singleFork: true },
-      vmThreads: { singleThread: true },
     },
     // Timeouts generosos para CI
     testTimeout: isCI ? 30000 : 15000,
