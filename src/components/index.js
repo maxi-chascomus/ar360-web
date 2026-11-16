@@ -2,6 +2,7 @@ export { Header } from "./Header";
 export { Footer } from "./Footer";
 export { HeroSection } from "./HeroSection";
 export { ServicesSection } from "./ServicesSection";
+export { CasosSection } from "./CasosSection";
 export { ExperienciasSection } from "./ExperienciasSection";
 export { SectoresSection } from "./SectoresSection";
 export { PorQueSection } from "./PorQueSection";

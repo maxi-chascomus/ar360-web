@@ -2,6 +2,8 @@
 
 Sitio web institucional de AR360°, consultora de Marketing Visual, Digitalización Comercial y Producción Audiovisual con base en Chascomús, Buenos Aires, Argentina.
 
+El sitio presenta tres líneas de negocio (Marketing Visual y Producción Audiovisual, Digitalización Comercial y Consultoría Estratégica y Empresarial) y una sección de casos de estudio que distingue los modelos de intervención de los casos reales. Los modelos se vinculan a trabajos reales del portfolio; los resultados medidos se publican cuando existan y estén autorizados.
+
 ## 🚀 Stack Tecnológico
 
 - **Framework**: React 19 + Vite 8
@@ -27,6 +29,7 @@ src/
 │   ├── SectionHeader.jsx
 │   ├── HeroSection.jsx
 │   ├── ServicesSection.jsx
+│   ├── CasosSection.jsx
 │   ├── ExperienciasSection.jsx
 │   ├── SectoresSection.jsx
 │   ├── PorQueSection.jsx
@@ -36,6 +39,8 @@ src/
 ├── data/                       # Datos puros (separation of concerns)
 │   ├── experiencias.js
 │   ├── servicios.js
+│   ├── lineas.js                # 3 líneas de negocio
+│   ├── casos.js                 # modelos de intervención por rubro
 │   ├── sectores.js
 │   ├── razones.js
 │   ├── proceso.js

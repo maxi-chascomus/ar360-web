@@ -1,6 +1,8 @@
 import { describe, test, expect } from 'vitest';
 import { experiencias } from '../data/experiencias';
 import { servicios } from '../data/servicios';
+import { lineas } from '../data/lineas';
+import { casos } from '../data/casos';
 import { sectores } from '../data/sectores';
 import { razones } from '../data/razones';
 import { proceso } from '../data/proceso';
@@ -138,6 +140,53 @@ describe('Data exports', () => {
       expect(titles).toContain('Producimos');
       expect(titles).toContain('Digitalizamos');
       expect(titles).toContain('Publicamos');
+    });
+  });
+
+  describe('lineas', () => {
+    test('exporta 3 líneas de negocio', () => {
+      expect(lineas).toHaveLength(3);
+    });
+
+    test('números son secuenciales 01-03', () => {
+      expect(lineas.map((l) => l.number)).toEqual(['01', '02', '03']);
+    });
+
+    test('cada línea tiene campos requeridos e ítems', () => {
+      lineas.forEach((linea) => {
+        expect(linea).toHaveProperty('id');
+        expect(linea).toHaveProperty('title');
+        expect(linea).toHaveProperty('description');
+        expect(Array.isArray(linea.items)).toBe(true);
+        expect(linea.items.length).toBeGreaterThan(0);
+      });
+    });
+
+    test('la Línea 1 incluye los servicios visuales', () => {
+      expect(lineas[0].items).toEqual(servicios.map((s) => s.title));
+    });
+  });
+
+  describe('casos', () => {
+    test('exporta 3 modelos de intervención', () => {
+      expect(casos).toHaveLength(3);
+    });
+
+    test('cada caso tiene campos requeridos y vincula un trabajo real', () => {
+      casos.forEach((caso) => {
+        expect(caso).toHaveProperty('id');
+        expect(caso).toHaveProperty('sector');
+        expect(caso).toHaveProperty('context');
+        expect(caso).toHaveProperty('challenge');
+        expect(caso).toHaveProperty('solution');
+        expect(caso).toHaveProperty('expectedResult');
+        expect(caso.relatedWork.href).toBe('#experiencias');
+      });
+    });
+
+    test('IDs son únicos', () => {
+      const ids = casos.map((c) => c.id);
+      expect(new Set(ids).size).toBe(ids.length);
     });
   });
 });

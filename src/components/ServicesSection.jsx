@@ -1,22 +1,30 @@
-import { servicios } from "../data/servicios";
+import { lineas } from "../data/lineas";
 import { SectionHeader } from "./SectionHeader";
 
 export function ServicesSection() {
   return (
-    <section className="section" id="servicios">
+    <section className="section section-dark" id="servicios">
       <div className="container">
         <SectionHeader
-          kicker="SERVICIOS"
-          title="Soluciones visuales para mostrar, comunicar y promocionar."
-          description="Combinamos tecnología, producción audiovisual y comunicación digital para transformar espacios y proyectos en experiencias que puedan ser descubiertas y compartidas."
+          kicker="LÍNEAS DE NEGOCIO"
+          title="Tres líneas que se complementan."
+          description="Mostramos el negocio, lo llevamos a canales digitales propios y ordenamos la estrategia para que ese esfuerzo se convierta en crecimiento."
         />
 
-        <div className="services-grid">
-          {servicios.map((servicio) => (
-            <article className="service-card" key={servicio.id}>
-              <span className="service-number">{servicio.number}</span>
-              <h3>{servicio.title}</h3>
-              <p>{servicio.description}</p>
+        <div className="lineas-grid">
+          {lineas.map((linea) => (
+            <article className="linea-card" key={linea.id}>
+              <span className="linea-number">{linea.number}</span>
+              <h3>{linea.title}</h3>
+              <p className="linea-description">{linea.description}</p>
+
+              <ul className="linea-list">
+                {linea.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+
+              {linea.note && <p className="linea-note">{linea.note}</p>}
             </article>
           ))}
         </div>

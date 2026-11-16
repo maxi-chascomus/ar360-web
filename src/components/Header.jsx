@@ -1,5 +1,6 @@
 const navLinks = [
   { href: "#servicios", label: "Servicios" },
+  { href: "#casos", label: "Casos de estudio" },
   { href: "#experiencias", label: "Experiencias AR360°" },
   { href: "#sectores", label: "Sectores" },
   { href: "#por-que", label: "Por qué elegir AR360°" },

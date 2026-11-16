@@ -3,6 +3,7 @@ import {
   Footer,
   HeroSection,
   ServicesSection,
+  CasosSection,
   ExperienciasSection,
   SectoresSection,
   PorQueSection,
@@ -18,6 +19,7 @@ export function Home() {
       <main>
         <HeroSection />
         <ServicesSection />
+        <CasosSection />
         <ExperienciasSection />
         <SectoresSection />
         <PorQueSection />
