@@ -8,7 +8,7 @@ El sitio presenta tres líneas de negocio (Marketing Visual y Producción Audiov
 
 - **Framework**: React 19 + Vite 8
 - **Estilos**: CSS vanilla (arquitectura BEM-like, responsive mobile-first)
-- **Testing**: Vitest + React Testing Library (50 tests)
+- **Testing**: Vitest + React Testing Library (67 tests)
 - **Linting**: ESLint 10 (flat config) + React Hooks + React Refresh
 - **Imágenes**: Sharp (optimización WebP en build)
 - **Despliegue**: Cloudflare Pages (plan gratuito)
@@ -61,8 +61,7 @@ scripts/
 
 .github/
 ├── workflows/
-│   ├── ci.yml                  # Lint + Test + Build + Verificación dist
-│   └── deploy.yml              # Deploy a Cloudflare Pages
+│   └── ci.yml                  # Lint + Test + Build
 └── dependabot.yml              # Updates semanales automáticos
 ```
 
@@ -74,7 +73,7 @@ npm run dev              # Servidor de desarrollo (Vite HMR)
 
 # Calidad de código
 npm run lint             # ESLint (config flat, ignora test files)
-npm run test             # Vitest run (50 tests)
+npm run test             # Vitest run (67 tests)
 npm run test:watch       # Vitest watch mode
 npm run test:coverage    # Vitest + coverage v8 (html/json/text)
 
@@ -88,22 +87,25 @@ node scripts/optimize-images.js
 
 ## ✅ Pipeline CI (`.github/workflows/ci.yml`)
 
-| Job | Qué hace |
-|-----|----------|
-| `lint` | `npm run lint` — ESLint flat config |
-| `test` | `npm run test` — 50 tests Vitest + upload coverage |
-| `build` | `npm run build` — Genera `dist/` + upload artifact |
-| `check-dist` | Verifica: HTML metadata (lang=es, OG, Twitter, JSON-LD), assets JS/CSS, imágenes WebP ≤200KB |
+Un único job, `lint-and-test`, que corre en cada push y PR a `master`:
 
-## 🚀 Deploy a Cloudflare Pages (`.github/workflows/deploy.yml`)
+1. `npm ci` — instala dependencias desde el lockfile.
+2. `npm run lint` — ESLint.
+3. `npm run test` — 67 tests Vitest.
+4. `npm run build` — genera `dist/` y lo sube como artifact.
 
-**Requisitos previos** (configurar en GitHub Settings → Secrets):
-- `CLOUDFLARE_API_TOKEN` — Token con permisos Pages
-- `CLOUDFLARE_ACCOUNT_ID` — Account ID de Cloudflare
+El CI **verifica** el código; no publica.
 
-**Trigger**: Push a `master`/`main` o `workflow_dispatch` manual.
+## 🚀 Deploy a Cloudflare Pages
 
-**Pasos**: lint → test → build → `cloudflare/pages-action@v1` deploya `dist/` al proyecto `ar360-web`.
+El deploy lo hace la **integración nativa de Cloudflare con GitHub**, no un workflow de GitHub Actions:
+
+- **Trigger**: push a `master`.
+- **Build command**: `npm run build`.
+- **Directorio de salida**: `dist/`.
+- **Dominio**: `ar360.com.ar`.
+
+No se necesitan secrets de Cloudflare en GitHub: el token y el account ID (si existen) quedaron sin uso al eliminar el workflow duplicado.
 
 ## 🖼️ Optimización de Imágenes
 
@@ -128,10 +130,11 @@ npm run test
 npm run test:coverage
 ```
 
-**Cobertura actual (50 tests)**:
+**Cobertura actual (67 tests)**:
 - `Button`: 8 tests (variants, href, onClick, className, children, type)
-- `Data exports`: 18 tests (experiencias, servicios, sectores, razones, proceso)
-- `ServicesSection`: 7 tests
+- `Data exports`: 25 tests (experiencias, servicios, líneas, casos, sectores, razones, proceso)
+- `ServicesSection`: 9 tests
+- `CasosSection`: 8 tests
 - `ExperienciasSection`: 8 tests
 - `ContactSection`: 9 tests (formulario, validación, WhatsApp URL, éxito, reset)
 
@@ -171,7 +174,7 @@ Updates semanales (lunes 9am ART):
 
 ## 🔗 Enlaces de Producción
 
-- **Sitio**: https://ar360.com.ar (tras deploy)
+- **Sitio**: https://ar360.com.ar (publicado)
 - **Repo**: https://github.com/maxi-chascomus/ar360-web
 - **Cloudflare Pages**: Dashboard → Pages → ar360-web
 
